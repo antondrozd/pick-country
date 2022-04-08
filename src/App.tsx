@@ -1,27 +1,19 @@
 import { useState } from "react"
 import styled, { keyframes, css } from "styled-components"
+
 import { getRandomCountry } from "./utils"
 
+const BUTTON_WIDTH = 300
 // const MAX_COUNTRIES = 8;
 
 function App() {
   const [isSpinning, setIsSpinning] = useState(true)
-  // const [countries, setCountries] = useState<string[] | null>(null);
   const [finalCountry, setFinalCountry] = useState<string | null>(null)
 
   const handleClick = () => {
-    // const generatedCountries: string[] = [];
-
-    // for (let i = 0; i < MAX_COUNTRIES; i++) {
-    //   const generatedCountry: string = getRandomCountry({ full: true });
-
-    //   generatedCountries.push(generatedCountry);
-    // }
-
     const generatedCountry: string = getRandomCountry()
 
     setFinalCountry(generatedCountry)
-    // setCountries(generatedCountries);
     setIsSpinning(false)
   }
 
@@ -39,7 +31,15 @@ function App() {
       {finalCountry && (
         <CountryWrapper>
           <Zlata src="./zlata.webp" alt="zlata wow" />
-          <Country>{finalCountry}</Country>
+          <Country
+            target="_blank"
+            href={`https://www.google.com.ua/maps/search/${finalCountry.replaceAll(
+              " ",
+              "+"
+            )}`}
+          >
+            {finalCountry}
+          </Country>
         </CountryWrapper>
       )}
     </PageWrapper>
@@ -71,11 +71,15 @@ const zlataEffect = keyframes`
 `
 
 const moveX = keyframes`
-  from { left: -600px; } to { left: 600px; }
+  from { left: calc(-50vw + ${BUTTON_WIDTH / 2}px); } to { left: calc(50vw - ${
+  BUTTON_WIDTH / 2
+}px); }
 `
 
 const moveY = keyframes`
-  from { top: -200px; } to { top: 200px; }
+  from { top: calc(-50vh + ${BUTTON_WIDTH / 2}px); } to { top: calc(50vh - ${
+  BUTTON_WIDTH / 2
+}px); }
 `
 
 const PageWrapper = styled.main`
@@ -92,9 +96,11 @@ const CountryWrapper = styled.div`
   align-items: center;
 `
 
-const Country = styled.span`
+const Country = styled.a`
   font-family: "Rubik Bubbles", cursive;
   font-size: 36px;
+  text-decoration: none;
+  color: #000;
 `
 
 const Zlata = styled.img`
@@ -147,11 +153,7 @@ const Zlata = styled.img`
 
 const Button = styled.button<{ isSpinning: boolean }>`
   position: relative;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  width: 300px;
+  width: ${BUTTON_WIDTH}px;
   padding: 20px;
   font-size: 21px;
   background-color: #b846ef;
