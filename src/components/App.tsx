@@ -1,7 +1,8 @@
 import { useState } from "react"
 import styled, { keyframes, css } from "styled-components"
 
-import { getRandomCountry } from "./utils"
+import { getRandomCountry } from "../utils"
+import { spin, zlataEffect } from "../animations"
 
 const BUTTON_WIDTH = 300
 // const MAX_COUNTRIES = 8;
@@ -46,28 +47,6 @@ function App() {
 }
 
 export default App
-
-const spin = keyframes`
-  from {
-      transform:rotate(0deg);
-  }
-  to {
-      transform:rotate(360deg) ;
-}`
-
-const zlataEffect = keyframes`
-  30% {
-    transform: scale(0.1);
-  }
-
-  60% {
-    transform: scale(5);
-  }
-
-  100% {
-    transform: none;
-  }
-`
 
 const moveX = keyframes`
   from { left: calc(-50vw + ${BUTTON_WIDTH / 2}px); } to { left: calc(50vw - ${
