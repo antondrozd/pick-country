@@ -1,14 +1,13 @@
-import { useState } from "react";
-import styled, { keyframes, css } from "styled-components";
-// @ts-ignore
-import { getRandomCountry } from "./utils";
+import { useState } from "react"
+import styled, { keyframes, css } from "styled-components"
+import { getRandomCountry } from "./utils"
 
 // const MAX_COUNTRIES = 8;
 
 function App() {
-  const [isSpinning, setIsSpinning] = useState(true);
+  const [isSpinning, setIsSpinning] = useState(true)
   // const [countries, setCountries] = useState<string[] | null>(null);
-  const [finalCountry, setFinalCountry] = useState<string | null>(null);
+  const [finalCountry, setFinalCountry] = useState<string | null>(null)
 
   const handleClick = () => {
     // const generatedCountries: string[] = [];
@@ -19,18 +18,18 @@ function App() {
     //   generatedCountries.push(generatedCountry);
     // }
 
-    const generatedCountry: string = getRandomCountry();
+    const generatedCountry: string = getRandomCountry()
 
-    setFinalCountry(generatedCountry);
+    setFinalCountry(generatedCountry)
     // setCountries(generatedCountries);
-    setIsSpinning(false);
-  };
+    setIsSpinning(false)
+  }
 
   return (
     <PageWrapper>
       {/* <Wrapper> */}
       <Button isSpinning={isSpinning} onClick={handleClick}>
-        {isSpinning ? "Страну мне!" : "🔥"}
+        {isSpinning ? "Страну мне!" : "🔥🔥🔥"}
       </Button>
       {/* {countries &&
           countries.map((country, index) => (
@@ -44,10 +43,10 @@ function App() {
         </CountryWrapper>
       )}
     </PageWrapper>
-  );
+  )
 }
 
-export default App;
+export default App
 
 const spin = keyframes`
   from {
@@ -55,7 +54,7 @@ const spin = keyframes`
   }
   to {
       transform:rotate(360deg) ;
-}`;
+}`
 
 const zlataEffect = keyframes`
   30% {
@@ -69,15 +68,15 @@ const zlataEffect = keyframes`
   100% {
     transform: none;
   }
-`;
+`
 
 const moveX = keyframes`
   from { left: -600px; } to { left: 600px; }
-`;
+`
 
 const moveY = keyframes`
   from { top: -200px; } to { top: 200px; }
-`;
+`
 
 const PageWrapper = styled.main`
   display: flex;
@@ -85,24 +84,24 @@ const PageWrapper = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
-`;
+`
 
 const CountryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const Country = styled.span`
   font-family: "Rubik Bubbles", cursive;
   font-size: 36px;
-`;
+`
 
 const Zlata = styled.img`
   width: 250px;
   margin: 40px 0;
   border-radius: 50%;
-`;
+`
 
 // const Wrapper = styled.div`
 //   position: relative;
@@ -172,4 +171,4 @@ const Button = styled.button<{ isSpinning: boolean }>`
       : css`
           animation: ${zlataEffect} linear 1s;
         `}
-`;
+`
