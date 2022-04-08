@@ -91,7 +91,7 @@ const CountryWrapper = styled.div`
 const Country = styled.a`
   position: relative;
   font-family: "Rubik Bubbles", cursive;
-  font-size: 36px;
+  font-size: 46px;
   text-align: center;
   text-decoration: none;
   color: #000;
