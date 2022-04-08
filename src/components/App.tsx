@@ -5,7 +5,6 @@ import { getRandomCountry } from "../utils"
 import { spin, zlataEffect } from "../animations"
 
 const BUTTON_WIDTH = 300
-// const MAX_COUNTRIES = 8;
 
 function App() {
   const [isSpinning, setIsSpinning] = useState(true)
@@ -124,48 +123,6 @@ const Zlata = styled.img`
     animation: ${spin} linear 0.5s infinite;
   }
 `
-
-// const Wrapper = styled.div`
-//   position: relative;
-//   /* width: 500px; */
-//   /* height: 500px; */
-
-//   ${Country} {
-//     display: block;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     width: 6em;
-//     height: 6em;
-//     margin: -3em;
-//     text-align: center;
-//   }
-
-//   > ${Country}:nth-of-type(1) {
-//     transform: rotate(0deg) translate(10em) rotate(0deg);
-//   }
-//   > ${Country}:nth-of-type(2) {
-//     transform: rotate(45deg) translate(10em) rotate(-45deg);
-//   }
-//   > ${Country}:nth-of-type(3) {
-//     transform: rotate(90deg) translate(10em) rotate(-90deg);
-//   }
-//   > ${Country}:nth-of-type(4) {
-//     transform: rotate(135deg) translate(10em) rotate(-135deg);
-//   }
-//   > ${Country}:nth-of-type(5) {
-//     transform: rotate(180deg) translate(10em) rotate(-180deg);
-//   }
-//   > ${Country}:nth-of-type(6) {
-//     transform: rotate(225deg) translate(10em) rotate(-225deg);
-//   }
-//   > ${Country}:nth-of-type(7) {
-//     transform: rotate(270deg) translate(10em) rotate(-270deg);
-//   }
-//   > ${Country}:nth-of-type(8) {
-//     transform: rotate(315deg) translate(10em) rotate(-315deg);
-//   }
-// `;
 
 const Button = styled.button<{ isSpinning: boolean }>`
   position: relative;
