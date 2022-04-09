@@ -2,7 +2,7 @@ import { useState } from "react"
 import styled, { keyframes, css } from "styled-components"
 
 import { getRandomCountry } from "../utils"
-import { spin, zlataEffect } from "../animations"
+import { spin, spinReverse, zlataEffect } from "../animations"
 import Fireworks from "./Fireworks"
 
 const BUTTON_WIDTH = 300
@@ -149,7 +149,7 @@ const Button = styled.button<{ isSpinning: boolean }>`
             ${moveY} 3.5s linear 0s infinite alternate;
         `
       : css`
-          animation: ${zlataEffect} linear 1s;
+          animation: ${spinReverse} linear 0.2s 3;
 
           :hover {
             transform: scale(1.1);

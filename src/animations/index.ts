@@ -2,11 +2,23 @@ import { keyframes } from "styled-components"
 
 export const spin = keyframes`
   from {
-      transform:rotate(0deg);
+    transform:rotate(0deg);
   }
+
   to {
-      transform:rotate(360deg) ;
-}`
+    transform:rotate(360deg);
+  }
+`
+
+export const spinReverse = keyframes`
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(-360deg);
+  }
+`
 
 export const zlataEffect = keyframes`
   30% {
