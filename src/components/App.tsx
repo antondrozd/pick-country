@@ -3,29 +3,30 @@ import styled, { keyframes, css } from "styled-components"
 
 import { getRandomCountry } from "../utils"
 import { spin, zlataEffect } from "../animations"
+import Fireworks from "./Fireworks"
 
 const BUTTON_WIDTH = 300
 
 function App() {
-  const [isSpinning, setIsSpinning] = useState(true)
+  const [isCountryPicked, setIsCountryPicked] = useState(false)
   const [finalCountry, setFinalCountry] = useState<string | null>(null)
 
   const handleClick = () => {
-    if (isSpinning) {
+    if (!isCountryPicked) {
       const generatedCountry: string = getRandomCountry()
 
       setFinalCountry(generatedCountry)
-      setIsSpinning(false)
+      setIsCountryPicked(true)
     } else {
       setFinalCountry(null)
-      setIsSpinning(true)
+      setIsCountryPicked(false)
     }
   }
 
   return (
     <PageWrapper>
-      <Button isSpinning={isSpinning} onClick={handleClick}>
-        {isSpinning ? "Страну мне!" : "Phew... Again please!"}
+      <Button isSpinning={!isCountryPicked} onClick={handleClick}>
+        {!isCountryPicked ? "Страну мне!" : "Phew... Again please!"}
       </Button>
       {finalCountry && (
         <CountryWrapper>
@@ -41,6 +42,7 @@ function App() {
           </Country>
         </CountryWrapper>
       )}
+      <Fireworks isEnabled={isCountryPicked} />
     </PageWrapper>
   )
 }
